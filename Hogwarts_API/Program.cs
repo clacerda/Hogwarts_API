@@ -1,5 +1,6 @@
 using Hogwarts_API.Interface;
 using Hogwarts_API.Util;
+using Hogwarts_API.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUtil, GetUtil>();
-
+builder.Services.AddScoped<IPersonagemDb, PersonagemDb>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

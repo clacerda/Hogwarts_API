@@ -52,4 +52,15 @@ public class SearchBy
 
         return personagensSerialized;
     }
+
+
+    public static Personagem InsertCharacter(List<Personagem> personagens, Personagem personagem)
+    {
+        if (string.IsNullOrEmpty(personagem.name)) return null;
+
+        personagem.id = Guid.NewGuid();
+        personagens.Add(personagem);
+
+        return personagem;        
+    }
 }
