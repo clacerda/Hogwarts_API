@@ -1,6 +1,5 @@
 ﻿using Hogwarts_API.Models;
 using System.Text.Json;
-using System.Linq;
 
 namespace Hogwarts_API.Filters;
 
