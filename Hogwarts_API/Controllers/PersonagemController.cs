@@ -11,7 +11,6 @@ namespace Hogwarts_API.Controllers;
 public class PersonagemController : ControllerBase
 {
     private List<Personagem> _personagens;
-    private Personagem novoPersonagem = new Personagem();
 
     public PersonagemController(IPersonagemDb personagemDb)
     {
@@ -21,7 +20,7 @@ public class PersonagemController : ControllerBase
     
 
     [HttpGet("house/{house}")]
-    public async Task<String> finbAListByHouse(string house)
+    public async Task<String> findByListByHouseAsync(string house)
     {
         if (house == null || house == "") return "Parâmetro vazio."; 
 
@@ -41,7 +40,7 @@ public class PersonagemController : ControllerBase
 
 
     [HttpGet("gender/{gender}")]
-    public async Task<String> finbAListByGender(string gender)
+    public async Task<String> findByListByGenderAsync(string gender)
     {
         if (gender == null || gender == "") return "Parâmetro vazio.";
 
@@ -61,7 +60,7 @@ public class PersonagemController : ControllerBase
 
 
     [HttpGet("age/{age}")]
-    public async Task<String> finbAListByExactAge(string age)
+    public async Task<String> findByListByExactAgeAsync(string age)
     {
         if (age == null || age == "") return "Parâmetro vazio.";
 
@@ -81,7 +80,7 @@ public class PersonagemController : ControllerBase
 
 
     [HttpGet("name/{name}")]
-    public async Task<String> finbAListByName(string name)
+    public async Task<String> findByListByNameAsync(string name)
     {
         if (name == null || name == "") return "Parâmetro vazio.";
 
@@ -98,27 +97,4 @@ public class PersonagemController : ControllerBase
             return ex.Message + "/n Algo deu errado.";
         }
     }
-
-
-
-    //[HttpPost]
-    //public async Task<ActionResult<Personagem>>insertNewCharacter([FromBody]Personagem personagem)
-    //{
-    //    if (string.IsNullOrEmpty(personagem.name)) return BadRequest(new { Code = "400", Message = "Parâmetro vazio." });
-
-    //    try
-    //    {
-    //        if (_personagens == null) return NotFound(new { Code = "404", Message = "Nenhum dado encontrado." });
-
-    //       novoPersonagem = SearchBy.InsertCharacter(_personagens, personagem);
-
-    //        return novoPersonagem;
-    //    }
-    //    catch (HttpRequestException ex)
-    //    {
-    //        return StatusCode(500, new { Code = "500", Message = $"Erro interno: {ex.Message}" });
-    //    }
-    //}
-
-
 }

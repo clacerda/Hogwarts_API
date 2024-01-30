@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace Hogwarts_API.Filters;
 
-public class SearchBy
+public static class SearchBy
 {
     public static string SearchByHouse(List<Personagem> personagens, string house)
     {
